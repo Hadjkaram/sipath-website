@@ -1,10 +1,14 @@
 export default function AnnuairePage() {
   const medecins = [
-    { nom: "Pr. N'DA", specialite: "Anatomopathologie générale / Oncologie", pays: "Côte d'Ivoire", ville: "Bouaké" },
-    { nom: "Dr. SILUÉ LEA", specialite: "Pathologie Moléculaire & Gynécologique", pays: "Côte d'Ivoire", ville: "Abidjan" },
-    { nom: "Pr. DIALLO", specialite: "Dermatopathologie / Cytologie", pays: "Sénégal", ville: "Dakar" },
-    { nom: "Dr. OUÉDRAOGO", specialite: "Pathologie Digestive & Hépatologie", pays: "Burkina Faso", ville: "Ouagadougou" },
-    { nom: "Dr. TRAORÉ", specialite: "Hématopathologie", pays: "Mali", ville: "Bamako" },
+    { nom: "Pr. KOUYATÉ Mohamed", specialite: "Anatomopathologie générale", pays: "Côte d'Ivoire", ville: "Abidjan" },
+    { nom: "Pr. N'DAH Kouamé Justin", specialite: "Anatomopathologie", pays: "Côte d'Ivoire", ville: "Bouaké" },
+    { nom: "Pr. DIOMANDÉ Isidore Mohenou", specialite: "Anatomopathologie / Cytologie", pays: "Côte d'Ivoire", ville: "Abidjan" },
+    { nom: "Pr. DOUKOURÉ Brahima", specialite: "Anatomopathologie", pays: "Côte d'Ivoire", ville: "Abidjan" },
+    { nom: "Pr. EHOUMAN Armand", specialite: "Histologie-Embryologie / Cytologie", pays: "Côte d'Ivoire", ville: "Abidjan" },
+    { nom: "Pr. DIEME-AHOUIDI Marie Joseph", specialite: "Neuropathologie / Anatomopathologie", pays: "Sénégal", ville: "Dakar" },
+    { nom: "Pr. WOTO-GAYE G.", specialite: "Anatomopathologie", pays: "Sénégal", ville: "Dakar" },
+    { nom: "Pr. SOUDRÉ Robert", specialite: "Anatomopathologie", pays: "Burkina Faso", ville: "Ouagadougou" },
+    { nom: "Pr. BAYO S.", specialite: "Anatomopathologie", pays: "Mali", ville: "Bamako" },
   ];
 
   return (

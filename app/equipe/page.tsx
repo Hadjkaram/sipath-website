@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useState } from 'react';
-import Link from 'next/link';
 
 interface TeamMember {
   id: number;
@@ -17,63 +16,63 @@ interface TeamMember {
 const teamMembers: TeamMember[] = [
   {
     id: 1,
-    name: "Pr. Ndah Kouamé Justin",
-    title: "Responsable de l'Anatomopathologie",
-    location: "CHU de Bouaké, Côte d'Ivoire",
-    region: "Côte d'Ivoire",
-    bio: "Expert reconnu en anatomopathologie avec plus de 25 ans d'expérience. Il a développé les premiers protocoles de télépathologie en Côte d'Ivoire et forme la nouvelle génération de pathologistes.",
-    specialties: ["Anatomopathologie", "Télépathologie", "Diagnostic numérique"],
-    image: "/team/ndah-kouame-justin.jpg"
-  },
-  {
-    id: 2,
-    name: "Pr. Mamadou Kouyaté",
+    name: "Pr. Mohamed Kouyaté",
     title: "Président de la SIPath",
     location: "Abidjan, Côte d'Ivoire",
     region: "Côte d'Ivoire",
-    bio: "Président fondateur de la Société Ivoirienne de Pathologie. Visionnaire de la révolution diagnostique en Afrique de l'Ouest, il a contribué à la création de réseaux de pathologie dans toute la sous-région.",
-    specialties: ["Pathologie générale", "Leadership médical", "Coopération régionale"],
-    image: "/team/kouyate-president.jpg"
+    bio: "Président de la Société Ivoirienne de Pathologie (SIPath). Expert de premier plan en anatomopathologie, il joue un rôle majeur dans la coordination des activités de la société savante et l'intégration des nouvelles pratiques de diagnostic en Côte d'Ivoire.",
+    specialties: ["Anatomopathologie générale", "Leadership médical", "Diagnostic"],
+    image: "/pr-kouyate.jpeg"
+  },
+  {
+    id: 2,
+    name: "Pr. Kouamé Justin N'Dah",
+    title: "Président du Comité d'Organisation",
+    location: "CHU de Bouaké, Côte d'Ivoire",
+    region: "Côte d'Ivoire",
+    bio: "Responsable et expert reconnu, notamment au CHU de Bouaké. Le Professeur N'Dah est un pilier de la SIPath, particulièrement impliqué dans l'organisation des grandes rencontres scientifiques de la sous-région et la formation universitaire.",
+    specialties: ["Anatomopathologie", "Pathologie tumorale", "Recherche"],
+    image: "/pr-nda.jpeg"
   },
   {
     id: 3,
-    name: "Dr. Fatou Diallo",
-    title: "Pathologiste senior",
-    location: "CHU de Dakar, Sénégal",
-    region: "Sous-région",
-    bio: "Spécialiste en cytopathologie et pathologie mammaire. Elle dirige le programme de dépistage du cancer du sein au Sénégal et collabore étroitement avec la SIPath sur les projets de formation continue.",
-    specialties: ["Cytopathologie", "Pathologie mammaire", "Dépistage"],
-    image: "/team/fatou-diallo.jpg"
+    name: "Pr. Isidore Mohenou Diomandé",
+    title: "Président du Comité Scientifique",
+    location: "CHU de Cocody, Abidjan",
+    region: "Côte d'Ivoire",
+    bio: "Figure pionnière de l'anatomopathologie en Côte d'Ivoire. Le Professeur Diomandé a dirigé de nombreux travaux de recherche, encadré plusieurs générations de médecins au sein de la Faculté de Médecine d'Abidjan, et est un référent pour la Revue Africaine de Pathologie.",
+    specialties: ["Anatomopathologie", "Cytologie", "Recherche Scientifique"],
+    image: "/pr-diomande.jpeg"
   },
   {
     id: 4,
-    name: "Pr. Oumar Traoré",
-    title: "Chef de service Anatomopathologie",
-    location: "Hôpital Gabriel Touré, Bamako, Mali",
-    region: "Sous-région",
-    bio: "Pionnier de la pathologie numérique au Mali. Il a mis en place le premier système de télépathologie reliant les hôpitaux de Bamako aux centres de référence de la sous-région.",
-    specialties: ["Pathologie numérique", "Hématopathologie", "Formation"],
-    image: "/team/oumar-traore.jpg"
+    name: "Pr. Brahima Doukouré",
+    title: "Pathologiste & Chercheur",
+    location: "Abidjan, Côte d'Ivoire",
+    region: "Côte d'Ivoire",
+    bio: "Expert pathologiste ivoirien. Membre actif du comité de rédaction des revues médicales locales, il est co-auteur de nombreuses publications majeures en anatomie et cytologie pathologiques en Afrique de l'Ouest.",
+    specialties: ["Pathologie générale", "Oncologie diagnostique"],
+    image: "/logo-sipath.png"
   },
   {
     id: 5,
-    name: "Pr. Aminata Koné",
-    title: "Professeure en Pathologie",
-    location: "CHU de Cocody, Abidjan, Côte d'Ivoire",
-    region: "Côte d'Ivoire",
-    bio: "Experte en pathologie gynécologique et digestive. Elle participe activement aux programmes de recherche de la SIPath et supervise les thèses de spécialisation en pathologie.",
-    specialties: ["Pathologie gynécologique", "Pathologie digestive", "Recherche"],
-    image: "/team/aminata-kone.jpg"
+    name: "Pr. Marie Joseph Dieme-Ahouidi",
+    title: "Pathologiste (Réseau Sous-Régional)",
+    location: "CHNU Fann, Dakar, Sénégal",
+    region: "Sous-région",
+    bio: "Éminente spécialiste du système nerveux central et pathologiste au CHNU de Fann à Dakar. Elle contribue activement aux échanges scientifiques entre les sociétés savantes d'Afrique de l'Ouest et de l'espace francophone.",
+    specialties: ["Neuropathologie", "Anatomopathologie", "Recherche"],
+    image: "/logo-sipath.png"
   },
   {
     id: 6,
-    name: "Dr. Ibrahima Sow",
-    title: "Pathologiste",
-    location: "CHU de Ouagadougou, Burkina Faso",
+    name: "Pr. Robert Soudré",
+    title: "Pathologiste (Réseau Sous-Régional)",
+    location: "Ouagadougou, Burkina Faso",
     region: "Sous-région",
-    bio: "Jeune talent de la pathologie burkinabè. Spécialisé en pathologie pédiatrique et infectieuse, il représente la nouvelle génération engagée dans la transformation digitale de la discipline.",
-    specialties: ["Pathologie pédiatrique", "Pathologie infectieuse", "Diagnostic moléculaire"],
-    image: "/team/ibrahima-sow.jpg"
+    bio: "Expert historique en anatomopathologie au Burkina Faso. Membre du comité de lecture régional et soutien de longue date aux initiatives scientifiques de la pathologie francophone africaine.",
+    specialties: ["Pathologie générale", "Formation médicale", "Comité de lecture"],
+    image: "/logo-sipath.png"
   }
 ];
 
@@ -87,7 +86,7 @@ export default function EquipePage() {
 
   return (
     <main className="min-h-screen bg-[#FDF6F0] pt-20">
-      {/* Header style asafoandco */}
+      {/* Header premium */}
       <div className="max-w-7xl mx-auto px-8 md:px-12 pt-16 pb-12">
         <p className="text-[#F26522] text-sm font-bold uppercase tracking-[0.25em] mb-4">Notre Collectif</p>
         <h1 className="text-6xl md:text-7xl text-[#2C2522] font-light tracking-[-0.02em] mb-6">L'Équipe SIPath</h1>
@@ -113,7 +112,7 @@ export default function EquipePage() {
         ))}
       </div>
 
-      {/* Grille des membres - exactement le style asafoandco */}
+      {/* Grille des membres */}
       <div className="max-w-7xl mx-auto px-8 md:px-12 pb-24">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
           {filteredMembers.map((member) => (
@@ -122,20 +121,19 @@ export default function EquipePage() {
               onClick={() => setSelectedMember(member)}
               className="group cursor-pointer bg-white border border-[#E8D9C9] overflow-hidden flex flex-col hover:border-[#F26522]/40 hover:shadow-xl transition-all duration-500"
             >
-              {/* Photo avec effet scale comme asafo */}
-              <div className="relative h-[380px] overflow-hidden bg-[#F8EDE3]">
+              <div className="relative h-[380px] overflow-hidden bg-[#F8EDE3] flex items-center justify-center p-4">
                 <img 
                   src={member.image} 
                   alt={member.name}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  className={`transition-transform duration-700 group-hover:scale-105 ${member.image === '/logo-sipath.png' ? 'w-32 h-32 object-contain opacity-50' : 'w-full h-full object-cover'}`}
                 />
               </div>
 
               <div className="p-8 flex flex-col flex-1">
-                <h3 className="text-[#2C2522] text-2xl font-semibold tracking-tight mb-1 group-hover:text-[#F26522] transition-colors">
+                <h3 className="text-[#2C2522] text-xl md:text-2xl font-semibold tracking-tight mb-1 group-hover:text-[#F26522] transition-colors">
                   {member.name}
                 </h3>
-                <p className="text-[#F26522] text-sm font-medium tracking-widest mb-3">{member.title}</p>
+                <p className="text-[#F26522] text-xs font-medium tracking-widest mb-3 uppercase">{member.title}</p>
                 <p className="text-[#6B5B4F] text-sm mt-auto">{member.location}</p>
               </div>
             </div>
@@ -143,7 +141,7 @@ export default function EquipePage() {
         </div>
       </div>
 
-      {/* Modal ultra premium (effet asafoandco) */}
+      {/* Modal ultra premium */}
       {selectedMember && (
         <div 
           className="fixed inset-0 z-[100] flex items-center justify-center bg-black/60 p-4"
@@ -161,20 +159,18 @@ export default function EquipePage() {
             </button>
 
             <div className="grid md:grid-cols-5 gap-0">
-              {/* Photo côté gauche */}
-              <div className="md:col-span-2 relative h-[420px] md:h-auto">
+              <div className="md:col-span-2 relative h-[300px] md:h-auto bg-[#F8EDE3] flex items-center justify-center p-8">
                 <img 
                   src={selectedMember.image} 
                   alt={selectedMember.name}
-                  className="w-full h-full object-cover"
+                  className={selectedMember.image === '/logo-sipath.png' ? 'w-40 h-40 object-contain opacity-40' : 'w-full h-full object-cover'}
                 />
               </div>
 
-              {/* Infos */}
               <div className="md:col-span-3 p-10 md:p-14">
-                <p className="text-[#F26522] text-xs font-bold tracking-[0.3em] mb-2">PATHOLOGISTE</p>
-                <h2 className="text-4xl md:text-5xl text-[#2C2522] font-light tracking-[-0.01em] mb-2">{selectedMember.name}</h2>
-                <p className="text-xl text-[#F26522] font-medium mb-8">{selectedMember.title}</p>
+                <p className="text-[#F26522] text-xs font-bold tracking-[0.3em] mb-2 uppercase">Spécialiste</p>
+                <h2 className="text-3xl md:text-4xl text-[#2C2522] font-light tracking-[-0.01em] mb-2">{selectedMember.name}</h2>
+                <p className="text-lg text-[#F26522] font-medium mb-8">{selectedMember.title}</p>
 
                 <div className="mb-8">
                   <p className="text-sm text-[#6B5B4F] tracking-widest mb-1">LOCALISATION</p>
@@ -196,19 +192,11 @@ export default function EquipePage() {
                   <p className="text-sm text-[#6B5B4F] tracking-widest mb-3">BIOGRAPHIE</p>
                   <p className="text-[#2C2522] leading-relaxed text-[15px]">{selectedMember.bio}</p>
                 </div>
-
-                <div className="mt-10">
-                  <button className="btn-premium border border-[#F26522] text-[#F26522] px-10 py-4 text-sm uppercase tracking-[0.2em] hover:bg-[#F26522] hover:text-white transition-all">
-                    Contacter ce confrère
-                  </button>
-                </div>
               </div>
             </div>
           </div>
         </div>
       )}
-
-      <div className="h-20"></div>
     </main>
   );
 }
