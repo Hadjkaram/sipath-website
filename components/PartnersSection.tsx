@@ -1,15 +1,16 @@
 import Image from 'next/image';
 
+// Le tableau est mis à jour avec les NOMS EXACTS de tes images
 const partners = [
-  { src: '/chu-bouake.png', alt: 'CHU Bouaké' },
-  { src: '/chu-cocody.png', alt: 'CHU Cocody' },
-  { src: '/chu-treichville.png', alt: 'CHU Treichville' },
-  { src: '/leica.jpg', alt: 'Leica' },
-  { src: '/logo-roche.png', alt: 'Roche' },
-  { src: '/mshcmu.jpg', alt: 'Ministère de la Santé et CMU' },
-  { src: '/odmci.jpg', alt: 'Ordre des Médecins CI' },
-  { src: '/ufrma.jpeg', alt: 'UFR Sciences Médicales' },
-  { src: '/merck.png', alt: 'Merck' },
+  { src: '/CHU BOUAKE.png', alt: 'CHU Bouaké' },
+  { src: '/CHU COCODY.png', alt: 'CHU Cocody' },
+  { src: '/CHU TREICHVILLE.png', alt: 'CHU Treichville' },
+  { src: '/LEICA.jpg', alt: 'Leica' },
+  { src: '/Logo roche.png', alt: 'Roche' },
+  { src: '/MSHCMU.jpg', alt: 'Ministère de la Santé et CMU' },
+  { src: '/ODMCI.jpg', alt: 'Ordre des Médecins CI' },
+  { src: '/UFRMA.jpeg', alt: 'UFR Sciences Médicales' },
+  { src: '/MERCK.png', alt: 'Merck' },
 ];
 
 export default function PartnersSection() {
