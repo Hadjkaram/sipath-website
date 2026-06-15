@@ -28,16 +28,16 @@ export default function ContactPage() {
               <h4 className="font-bold uppercase text-[#F26522] mb-1">Email</h4>
               <p className="text-[#6B5B4F] font-light">contact@sipath.ci</p>
             </div>
-            {/* ========== BLOC WHATSAPP ========== */}
+            {/* ========== BLOC WHATSAPP MIS À JOUR ========== */}
             <div>
               <h4 className="font-bold uppercase text-[#F26522] mb-1">WhatsApp</h4>
               <Link 
-                href="https://wa.me/2250556005556" 
+                href="https://wa.me/2250503888173" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="text-[#6B5B4F] font-light hover:text-[#F26522] transition-colors flex items-center gap-2"
               >
-                +225 05 56 00 55 56 <span className="text-lg leading-none">↗</span>
+                +225 05 03 88 81 73 <span className="text-lg leading-none">↗</span>
               </Link>
             </div>
           </div>

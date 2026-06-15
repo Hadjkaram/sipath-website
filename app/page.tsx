@@ -2,6 +2,7 @@ import HeroSlideshow from '../components/HeroSlideshow';
 import NewsSection from '../components/NewsSection';
 import VisionSection from '../components/VisionSection';
 import TeamSection from '../components/TeamSection';
+import PartnersSection from '../components/PartnersSection';
 
 export default function Home() {
   return (
@@ -26,22 +27,25 @@ export default function Home() {
         </div>
       </div>
 
-      {/* SECTION 2 : ACTUALITÉS (Fond Ivoire/Lin - Lumineux) */}
+      {/* SECTION 2 : ACTUALITÉS */}
       <div className="bg-[#FAF6F0]">
         <NewsSection />
       </div>
 
-      {/* SECTION 3 : VISION (Fond Vert Profond + Carte Afrique Fibre) */}
+      {/* SECTION 3 : VISION */}
       <VisionSection />
 
-      {/* SECTION 4 : ÉQUIPE (Fond Marron Sépia / Chocolat - Élégant) */}
+      {/* SECTION 4 : ÉQUIPE */}
       <div className="bg-[#211712]">
         <TeamSection />
       </div>
 
-      {/* ========== BOUTON FLOTTANT WHATSAPP ========== */}
+      {/* SECTION 5 : PARTENAIRES (Nouvelle section) */}
+      <PartnersSection />
+
+      {/* ========== BOUTON FLOTTANT WHATSAPP MIS À JOUR ========== */}
       <a 
-        href="https://wa.me/2250556005556" 
+        href="https://wa.me/2250503888173" 
         target="_blank" 
         rel="noopener noreferrer"
         className="fixed bottom-8 right-8 z-50 bg-[#2C2522] text-white p-4 rounded-full shadow-lg hover:bg-[#F26522] hover:-translate-y-1 transition-all duration-300 flex items-center justify-center"
