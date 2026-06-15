@@ -1,51 +1,74 @@
+import Link from 'next/link';
+
 export default function NewsSection() {
   return (
-    <section id="actualites" className="w-full bg-[#FDF6F0] py-24 md:py-32 px-8 md:px-12 flex flex-col items-center z-20 relative border-t border-[#E8D9C9]">
-      <div className="w-full max-w-7xl">
-        <h2 className="text-4xl md:text-5xl text-[#2C2522] font-light mb-16 tracking-widest uppercase text-center">
-          Actualités
-        </h2>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {/* Carte 1 */}
-          <div className="bg-white p-10 h-[460px] flex flex-col justify-between group cursor-pointer border border-[#E8D9C9] hover:border-[#F26522]/30 hover:shadow-2xl transition-all duration-500">
-            <div>
-              <p className="text-[#F26522] text-xs font-bold uppercase tracking-[0.2em] mb-6">Congrès • Juin 2026</p>
-              <h3 className="text-[#2C2522] text-3xl font-semibold leading-tight tracking-[-0.01em]">
-                Retour sur le 3ème Congrès de la SIPath avec les délégations sous-régionales
-              </h3>
-            </div>
-            <div className="flex justify-end">
-              <span className="text-[#2C2522] text-5xl font-light group-hover:text-[#F26522] transition-colors duration-300">+</span>
-            </div>
+    <section className="w-full py-24 md:py-32 px-6 md:px-12 flex flex-col items-center relative">
+      <h2 className="text-4xl text-[#2C2522] font-light mb-16 tracking-widest uppercase text-center">
+        Actualités
+      </h2>
+      
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full max-w-7xl">
+        
+        {/* Carte 1 : Les 3èmes Journées (Le texte officiel de SIPath) */}
+        <Link href="/actualites" className="bg-white p-8 md:p-10 h-auto md:h-[480px] flex flex-col justify-between group cursor-pointer hover:shadow-xl transition-all border border-[#E8D9C9]/50 shadow-sm">
+          <div>
+            <p className="text-[#F26522] text-xs font-bold uppercase tracking-wider mb-6">
+              Événement • Clôture
+            </p>
+            <h3 className="text-[#2C2522] text-xl md:text-2xl font-medium leading-snug group-hover:text-[#F26522] transition-colors mb-4">
+              Clôture des 3èmes Journées Scientifiques de la SIPath
+            </h3>
+            <p className="text-[#6B5B4F] text-sm leading-relaxed font-light line-clamp-4">
+              Après trois journées riches en communications autour du thème « Anatomie et Cytologie Pathologiques (ACP) : Santé et Société », ces rencontres s’achèvent avec la satisfaction d’avoir réuni des professionnels engagés.
+            </p>
           </div>
-
-          {/* Carte 2 */}
-          <div className="bg-white p-10 h-[460px] flex flex-col justify-between group cursor-pointer border border-[#E8D9C9] hover:border-[#F26522]/30 hover:shadow-2xl transition-all duration-500">
-            <div>
-              <p className="text-[#F26522] text-xs font-bold uppercase tracking-[0.2em] mb-6">Formation • Mai 2026</p>
-              <h3 className="text-[#2C2522] text-3xl font-semibold leading-tight tracking-[-0.01em]">
-                Déploiement et renforcement des capacités en télépathologie au CHU de Bouaké
-              </h3>
-            </div>
-            <div className="flex justify-end">
-              <span className="text-[#2C2522] text-5xl font-light group-hover:text-[#F26522] transition-colors duration-300">+</span>
-            </div>
+          <div className="flex justify-end items-center mt-8">
+            <span className="text-sm font-semibold tracking-wider uppercase text-[#6B5B4F] group-hover:text-[#F26522] transition-colors flex items-center gap-2">
+              Plus d'infos <span className="text-lg">→</span>
+            </span>
           </div>
+        </Link>
 
-          {/* Carte 3 */}
-          <div className="bg-white p-10 h-[460px] flex flex-col justify-between group cursor-pointer border border-[#E8D9C9] hover:border-[#F26522]/30 hover:shadow-2xl transition-all duration-500">
-            <div>
-              <p className="text-[#F26522] text-xs font-bold uppercase tracking-[0.2em] mb-6">Santé Publique • Avril 2026</p>
-              <h3 className="text-[#2C2522] text-3xl font-semibold leading-tight tracking-[-0.01em]">
-                Vers une intégration fluide des diagnostics numériques pour les patients de la CMU
-              </h3>
-            </div>
-            <div className="flex justify-end">
-              <span className="text-[#2C2522] text-5xl font-light group-hover:text-[#F26522] transition-colors duration-300">+</span>
-            </div>
+        {/* Carte 2 */}
+        <Link href="/actualites" className="bg-white p-8 md:p-10 h-auto md:h-[480px] flex flex-col justify-between group cursor-pointer hover:shadow-xl transition-all border border-[#E8D9C9]/50 shadow-sm">
+          <div>
+            <p className="text-[#F26522] text-xs font-bold uppercase tracking-wider mb-6">
+              Formation • CHU Bouaké
+            </p>
+            <h3 className="text-[#2C2522] text-xl md:text-2xl font-medium leading-snug group-hover:text-[#F26522] transition-colors mb-4">
+              Déploiement et renforcement des capacités en anatomopathologie
+            </h3>
+            <p className="text-[#6B5B4F] text-sm leading-relaxed font-light line-clamp-4">
+              Une série de formations pratiques s'est tenue au CHU de Bouaké, visant à équiper les spécialistes locaux des dernières méthodes de diagnostic numérique et de télépathologie.
+            </p>
           </div>
-        </div>
+          <div className="flex justify-end items-center mt-8">
+            <span className="text-sm font-semibold tracking-wider uppercase text-[#6B5B4F] group-hover:text-[#F26522] transition-colors flex items-center gap-2">
+              Plus d'infos <span className="text-lg">→</span>
+            </span>
+          </div>
+        </Link>
+
+        {/* Carte 3 */}
+        <Link href="/actualites" className="bg-white p-8 md:p-10 h-auto md:h-[480px] flex flex-col justify-between group cursor-pointer hover:shadow-xl transition-all border border-[#E8D9C9]/50 shadow-sm">
+          <div>
+            <p className="text-[#F26522] text-xs font-bold uppercase tracking-wider mb-6">
+              Santé Publique • CMU
+            </p>
+            <h3 className="text-[#2C2522] text-xl md:text-2xl font-medium leading-snug group-hover:text-[#F26522] transition-colors mb-4">
+              Vers une intégration des diagnostics numériques pour les assurés
+            </h3>
+            <p className="text-[#6B5B4F] text-sm leading-relaxed font-light line-clamp-4">
+              La SIPath étudie de nouvelles solutions souveraines pour fluidifier la transmission des comptes rendus au sein du système de la Couverture Maladie Universelle ivoirienne.
+            </p>
+          </div>
+          <div className="flex justify-end items-center mt-8">
+            <span className="text-sm font-semibold tracking-wider uppercase text-[#6B5B4F] group-hover:text-[#F26522] transition-colors flex items-center gap-2">
+              Plus d'infos <span className="text-lg">→</span>
+            </span>
+          </div>
+        </Link>
+
       </div>
     </section>
   );
