@@ -19,7 +19,7 @@ export default function TeamSection() {
           <div className="group cursor-pointer">
             <div className="w-full h-[450px] bg-white mb-6 overflow-hidden border border-[#E8D9C9] relative shadow-sm">
                <Image 
-                 src="/PROFESSEUR KOUYATÉ PR DE SIPATH.jpeg" 
+                 src="/pr-kouyate.jpeg" 
                  alt="Professeur Kouyaté, Président de la SIPath" 
                  fill
                  className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
@@ -34,7 +34,7 @@ export default function TeamSection() {
           <div className="group cursor-pointer">
             <div className="w-full h-[450px] bg-white mb-6 overflow-hidden border border-[#E8D9C9] relative shadow-sm">
                <Image 
-                 src="/PROFESSEUR N'DA .jpeg" 
+                 src="/pr-nda.jpeg" 
                  alt="Professeur N'Da, Président du Comité d'Organisation" 
                  fill
                  className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
@@ -49,7 +49,7 @@ export default function TeamSection() {
           <div className="group cursor-pointer">
             <div className="w-full h-[450px] bg-white mb-6 overflow-hidden border border-[#E8D9C9] relative shadow-sm">
                <Image 
-                 src="/PROFESSEUR DIOMANDÉ.jpeg" 
+                 src="/pr-diomande.jpeg" 
                  alt="Professeur Diomandé, Président du Comité Scientifique" 
                  fill
                  className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
@@ -62,7 +62,6 @@ export default function TeamSection() {
 
         </div>
         
-        {/* BOUTON MODIFIÉ : Utilisation de <Link> pour rediriger vers la page Annuaire */}
         <div className="w-full flex justify-center mt-20">
             <Link href="/annuaire" className="border-2 border-[#F26522] text-[#F26522] px-10 py-4 uppercase tracking-widest text-sm font-semibold hover:bg-[#F26522] hover:text-white transition-colors duration-300">
                 Voir tout l'annuaire
