@@ -53,10 +53,16 @@ export default function Footer() {
 
       </div>
 
-      {/* Ligne légale finale */}
-      <div className="w-full max-w-7xl mx-auto border-t border-[#E8D9C9] pt-8 flex flex-col md:flex-row justify-between items-center text-xs opacity-70 tracking-wider">
-        <p>© 2026 Société Ivoirienne de Pathologie.</p>
-        <p className="mt-4 md:mt-0 font-medium text-[#F26522] italic">"La science au service de la vie"</p>
+      {/* Ligne légale finale avec ta signature */}
+      <div className="w-full max-w-7xl mx-auto border-t border-[#E8D9C9] pt-8 flex flex-col md:flex-row justify-between items-center text-xs opacity-80 tracking-wider">
+        <div className="flex flex-col md:flex-row items-center gap-2 md:gap-4 text-center md:text-left mb-4 md:mb-0 text-[#6B5B4F]">
+           <p>© 2026 Société Ivoirienne de Pathologie.</p>
+           <span className="hidden md:inline text-[#E8D9C9]">|</span>
+           <p>
+             Copyright by <a href="https://ibrahimkaramoko.site" target="_blank" rel="noopener noreferrer" className="font-bold text-[#2C2522] hover:text-[#F26522] transition-colors underline decoration-[#F26522]/30 underline-offset-4">El Hadj Karamoko</a>
+           </p>
+        </div>
+        <p className="font-medium text-[#F26522] italic">"La science au service de la vie"</p>
       </div>
     </footer>
   );
