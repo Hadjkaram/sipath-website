@@ -1,8 +1,8 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
-import { supabase } from '../../lib/supabase';
+import React, { useState } from 'react';
 
+// On définit le typage de ce qui sort de la base Supabase
 interface TeamMember {
   id: number;
   name: string;
@@ -11,44 +11,20 @@ interface TeamMember {
   region: string;
   bio: string;
   specialties: string[];
-  image_url: string; // Mis à jour pour correspondre à la colonne Supabase
+  image_url: string;
 }
 
-export default function EquipePage() {
-  const [teamMembers, setTeamMembers] = useState<TeamMember[]>([]);
+export default function EquipeClientWrapper({ initialMembers }: { initialMembers: TeamMember[] }) {
   const [activeFilter, setActiveFilter] = useState<'Tous' | 'Côte d\'Ivoire' | 'Sous-région'>('Tous');
   const [selectedMember, setSelectedMember] = useState<TeamMember | null>(null);
 
-  // Appel à Supabase pour récupérer l'équipe
-  useEffect(() => {
-    const fetchTeam = async () => {
-      const { data } = await supabase
-        .from('equipe')
-        .select('*')
-        .order('id', { ascending: true });
-      
-      if (data) {
-        setTeamMembers(data);
-      }
-    };
-    fetchTeam();
-  }, []);
-
+  // Filtrage des membres selon le bouton cliqué
   const filteredMembers = activeFilter === 'Tous' 
-    ? teamMembers 
-    : teamMembers.filter(member => member.region === activeFilter);
+    ? initialMembers 
+    : initialMembers.filter(member => member.region === activeFilter);
 
   return (
-    <main className="min-h-screen bg-[#FDF6F0] pt-20">
-      {/* Header premium */}
-      <div className="max-w-7xl mx-auto px-8 md:px-12 pt-16 pb-12">
-        <p className="text-[#F26522] text-sm font-bold uppercase tracking-[0.25em] mb-4">Notre Collectif</p>
-        <h1 className="text-6xl md:text-7xl text-[#2C2522] font-light tracking-[-0.02em] mb-6">L'Équipe SIPath</h1>
-        <p className="max-w-2xl text-xl text-[#2C2522]/80 font-light">
-          Une communauté de pathologistes experts engagés pour l'excellence diagnostique en Côte d'Ivoire et dans toute la sous-région.
-        </p>
-      </div>
-
+    <>
       {/* Filtres premium */}
       <div className="max-w-7xl mx-auto px-8 md:px-12 mb-10 flex flex-wrap gap-3">
         {(['Tous', "Côte d'Ivoire", 'Sous-région'] as const).map((filter) => (
@@ -68,31 +44,35 @@ export default function EquipePage() {
 
       {/* Grille des membres */}
       <div className="max-w-7xl mx-auto px-8 md:px-12 pb-24">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-          {filteredMembers.map((member) => (
-            <div 
-              key={member.id}
-              onClick={() => setSelectedMember(member)}
-              className="group cursor-pointer bg-white border border-[#E8D9C9] overflow-hidden flex flex-col hover:border-[#F26522]/40 hover:shadow-xl transition-all duration-500"
-            >
-              <div className="relative h-[380px] overflow-hidden bg-[#F8EDE3] flex items-center justify-center p-4">
-                <img 
-                  src={member.image_url || '/logo-sipath.png'} 
-                  alt={member.name}
-                  className={`transition-transform duration-700 group-hover:scale-105 ${!member.image_url || member.image_url === '/logo-sipath.png' ? 'w-32 h-32 object-contain opacity-50' : 'w-full h-full object-cover'}`}
-                />
-              </div>
+        {filteredMembers.length > 0 ? (
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+            {filteredMembers.map((member) => (
+              <div 
+                key={member.id}
+                onClick={() => setSelectedMember(member)}
+                className="group cursor-pointer bg-white border border-[#E8D9C9] overflow-hidden flex flex-col hover:border-[#F26522]/40 hover:shadow-xl transition-all duration-500"
+              >
+                <div className="relative h-[380px] overflow-hidden bg-[#F8EDE3] flex items-center justify-center p-4">
+                  <img 
+                    src={member.image_url || '/logo-sipath.png'} 
+                    alt={member.name}
+                    className={`transition-transform duration-700 group-hover:scale-105 ${!member.image_url || member.image_url === '/logo-sipath.png' ? 'w-32 h-32 object-contain opacity-50' : 'w-full h-full object-cover'}`}
+                  />
+                </div>
 
-              <div className="p-8 flex flex-col flex-1">
-                <h3 className="text-[#2C2522] text-xl md:text-2xl font-semibold tracking-tight mb-1 group-hover:text-[#F26522] transition-colors">
-                  {member.name}
-                </h3>
-                <p className="text-[#F26522] text-xs font-medium tracking-widest mb-3 uppercase">{member.title}</p>
-                <p className="text-[#6B5B4F] text-sm mt-auto">{member.location}</p>
+                <div className="p-8 flex flex-col flex-1">
+                  <h3 className="text-[#2C2522] text-xl md:text-2xl font-semibold tracking-tight mb-1 group-hover:text-[#F26522] transition-colors">
+                    {member.name}
+                  </h3>
+                  <p className="text-[#F26522] text-xs font-medium tracking-widest mb-3 uppercase">{member.title}</p>
+                  <p className="text-[#6B5B4F] text-sm mt-auto">{member.location}</p>
+                </div>
               </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+        ) : (
+          <p className="text-center text-[#6B5B4F] italic text-lg py-12">Aucun membre n'est actuellement enregistré pour ce filtre.</p>
+        )}
       </div>
 
       {/* Modal ultra premium */}
@@ -151,6 +131,6 @@ export default function EquipePage() {
           </div>
         </div>
       )}
-    </main>
+    </>
   );
 }
