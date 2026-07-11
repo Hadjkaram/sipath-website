@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { supabase } from '../lib/supabase';
 
 export default async function TeamSection() {
+  // Récupération des 3 premiers membres de l'équipe
   const { data: equipe } = await supabase
     .from('equipe')
     .select('*')
@@ -25,16 +26,16 @@ export default async function TeamSection() {
           
           {equipe && equipe.length > 0 ? (
             equipe.map((membre) => {
-              // Vérifie si l'image est le logo par défaut
-              const isDefault = !membre.image_url || membre.image_url.includes('logo-sipath.png');
+              // Vérifie si l'image existe et n'est pas vide
+              const isDefault = !membre.image_url || membre.image_url === '';
               
               return (
                 <div key={membre.id} className="group cursor-pointer bg-white border border-[#E8D9C9] hover:border-[#F26522]/40 hover:shadow-xl transition-all duration-500 flex flex-col">
-                  {/* Hauteur réduite à 380px avec ajustement conditionnel de l'image */}
+                  {/* Hauteur fixe de 380px avec ajustement */}
                   <div className="relative h-[380px] w-full bg-[#F8EDE3] overflow-hidden flex items-center justify-center p-4">
                      <Image 
                        src={membre.image_url || "/logo-sipath.png"} 
-                       alt={membre.name} 
+                       alt={membre.name || "Membre de l'équipe"} 
                        fill
                        className={`transition-transform duration-700 group-hover:scale-105 ${isDefault ? 'object-contain opacity-50 p-8' : 'object-cover object-top'}`}
                        unoptimized

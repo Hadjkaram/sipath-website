@@ -24,7 +24,7 @@ export default async function NewsSection() {
             <Link key={actu.id} href="/actualites" className="bg-white p-8 md:p-10 h-auto md:h-[480px] flex flex-col justify-between group cursor-pointer hover:shadow-xl transition-all border border-[#E8D9C9]/50 shadow-sm">
               <div>
                 <p className="text-[#F26522] text-xs font-bold uppercase tracking-wider mb-6">
-                  {actu.categorie} • {actu.date_pub}
+                  {actu.categorie || 'Info'} • {actu.date_pub || 'Date'}
                 </p>
                 <h3 className="text-[#2C2522] text-xl md:text-2xl font-medium leading-snug group-hover:text-[#F26522] transition-colors mb-4 line-clamp-3">
                   {actu.titre}
