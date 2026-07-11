@@ -5,7 +5,6 @@ import Link from 'next/link';
 import { supabase } from '../lib/supabase';
 
 export default async function TeamSection() {
-  // Récupération des 3 premiers membres de l'équipe
   const { data: equipe } = await supabase
     .from('equipe')
     .select('*')
@@ -25,21 +24,29 @@ export default async function TeamSection() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
           
           {equipe && equipe.length > 0 ? (
-            equipe.map((membre) => (
-              <div key={membre.id} className="group cursor-pointer">
-                <div className="w-full h-[450px] bg-white mb-6 overflow-hidden border border-[#E8D9C9] relative shadow-sm">
-                   <Image 
-                     src={membre.image_url || "/logo-sipath.png"} 
-                     alt={membre.name} 
-                     fill
-                     className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
-                     unoptimized
-                   />
+            equipe.map((membre) => {
+              // Vérifie si l'image est le logo par défaut
+              const isDefault = !membre.image_url || membre.image_url.includes('logo-sipath.png');
+              
+              return (
+                <div key={membre.id} className="group cursor-pointer bg-white border border-[#E8D9C9] hover:border-[#F26522]/40 hover:shadow-xl transition-all duration-500 flex flex-col">
+                  {/* Hauteur réduite à 380px avec ajustement conditionnel de l'image */}
+                  <div className="relative h-[380px] w-full bg-[#F8EDE3] overflow-hidden flex items-center justify-center p-4">
+                     <Image 
+                       src={membre.image_url || "/logo-sipath.png"} 
+                       alt={membre.name} 
+                       fill
+                       className={`transition-transform duration-700 group-hover:scale-105 ${isDefault ? 'object-contain opacity-50 p-8' : 'object-cover object-top'}`}
+                       unoptimized
+                     />
+                  </div>
+                  <div className="p-8 flex flex-col flex-1">
+                    <h3 className="text-[#2C2522] text-xl font-semibold uppercase tracking-wide group-hover:text-[#F26522] transition-colors line-clamp-1">{membre.name}</h3>
+                    <p className="text-[#6B5B4F] text-xs font-semibold tracking-widest uppercase mt-2 line-clamp-1">{membre.title}</p>
+                  </div>
                 </div>
-                <h3 className="text-[#2C2522] text-2xl font-medium uppercase tracking-wide group-hover:text-[#F26522] transition-colors line-clamp-1">{membre.name}</h3>
-                <p className="text-[#6B5B4F] text-xs font-semibold tracking-widest uppercase mt-2 line-clamp-1">{membre.title}</p>
-              </div>
-            ))
+              );
+            })
           ) : (
              <p className="col-span-3 text-center text-[#6B5B4F] text-sm">Profils en cours de mise à jour depuis le panneau d'administration.</p>
           )}
