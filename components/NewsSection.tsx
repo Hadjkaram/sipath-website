@@ -1,9 +1,10 @@
-export const revalidate = 0;
-
 import Link from 'next/link';
 import { supabase } from '../lib/supabase';
+import { unstable_noStore as noStore } from 'next/cache'; // Import de la fonction anti-cache
 
 export default async function NewsSection() {
+  noStore(); // Force Next.js à toujours interroger la base de données en direct pour ce composant
+
   // Récupération des 3 dernières actualités
   const { data: actualites } = await supabase
     .from('actualites')

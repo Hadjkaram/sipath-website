@@ -12,7 +12,7 @@ export default function AdminDashboard() {
   const [feedback, setFeedback] = useState<{ type: 'success' | 'error', message: string } | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   
-  // État pour stocker la liste des éléments
+  // État pour stocker la liste des éléments récupérés depuis la base
   const [itemsList, setItemsList] = useState<any[]>([]);
 
   // Formulaire Annuaire
@@ -182,6 +182,7 @@ export default function AdminDashboard() {
       {/* Contenu */}
       <section className="flex-1 p-8 md:p-16 overflow-y-auto">
         <div className="max-w-3xl">
+          {/* Formulaires d'ajout */}
           {activeTab === 'annuaire' && (
             <form onSubmit={handleAddAnnuaire} className="bg-white p-8 border border-[#E8D9C9]/60 shadow-sm flex flex-col gap-4 mb-12">
                <h3 className="text-xl text-[#2C2522] font-light border-b border-[#E8D9C9] pb-4">Ajouter au répertoire</h3>
@@ -228,13 +229,14 @@ export default function AdminDashboard() {
             </form>
           )}
 
+          {/* Liste */}
           <div className="bg-white p-8 border border-[#E8D9C9]/60 shadow-sm">
              <h3 className="text-xl text-[#2C2522] font-light border-b border-[#E8D9C9] pb-4 mb-4">Éléments publiés</h3>
              <ul className="divide-y divide-[#E8D9C9]/40">
                {itemsList.map(item => (
                  <li key={item.id} className="py-4 flex justify-between items-center group">
                    <p className="text-sm font-bold">{item.nom || item.name || item.titre}</p>
-                   <button onClick={() => handleDelete(item.id)} className="text-xs text-red-500">Supprimer</button>
+                   <button onClick={() => handleDelete(item.id)} className="text-xs text-red-500 hover:text-red-700">Supprimer</button>
                  </li>
                ))}
              </ul>
