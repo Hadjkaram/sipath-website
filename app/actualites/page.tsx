@@ -1,5 +1,6 @@
 export const revalidate = 0; // Force la page à toujours récupérer les dernières données
 
+import Link from 'next/link'; // NOUVEAU : Import indispensable pour créer un lien
 import { supabase } from '../../lib/supabase';
 
 export default async function ActualitesPage() {
@@ -22,7 +23,8 @@ export default async function ActualitesPage() {
         <div className="flex flex-col gap-8 w-full">
           {articles && articles.length > 0 ? (
             articles.map((art) => (
-              <div key={art.id} className="group cursor-pointer border-b border-[#E8D9C9] pb-8 flex flex-col md:flex-row md:items-center justify-between gap-4">
+              /* REMPLACEMENT ICI : div devient Link avec un href dynamique */
+              <Link key={art.id} href={`/actualites/${art.id}`} className="group cursor-pointer border-b border-[#E8D9C9] pb-8 flex flex-col md:flex-row md:items-center justify-between gap-4">
                 <div className="max-w-3xl">
                   <div className="flex items-center gap-4 mb-3">
                     <span className="text-[#F26522] text-xs font-bold uppercase tracking-wider">{art.categorie}</span>
@@ -36,7 +38,7 @@ export default async function ActualitesPage() {
                 <div className="flex items-center text-sm font-semibold text-[#6B5B4F] group-hover:text-[#F26522] transition-colors shrink-0">
                   Plus d'infos <span className="ml-2 transition-transform group-hover:translate-x-1">→</span>
                 </div>
-              </div>
+              </Link>
             ))
           ) : (
             <p className="text-[#6B5B4F] italic text-lg py-12">Aucune publication n'est disponible pour le moment.</p>
